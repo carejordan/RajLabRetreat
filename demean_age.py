@@ -1,9 +1,10 @@
+import sys
 import numpy as np
 
-age = np.loadtxt("participants.tsv", skiprows=1, usecols=1)
+age = np.loadtxt(sys.arg[1], skiprows=1, usecols=1)
 
 mean_age = sum(age)/len(age)
 
-np.savetxt("demeaned_age.txt", age-mean_age)
+np.savetxt("demeaned_" + sys.argv[1], age-mean_age)
 
 print("done!")
